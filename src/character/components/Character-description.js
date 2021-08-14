@@ -2,7 +2,6 @@ import React from "react";
 import styled from "styled-components";
 
 const CharacterDescriptionStyled = styled.div`
-  grid-area: character-description;
   .character-label {
     background: #685128;
     padding: 1em;
@@ -18,10 +17,10 @@ const CharacterDescriptionStyled = styled.div`
 const CharacterDescription = ({ status, gender, species }) => {
   return (
     <CharacterDescriptionStyled>
-      <div class="character-labels">
-        <h3 class="character-label">Género: {gender}</h3>
-        <h3 class="character-label">Especie: {species}</h3>
-        <h3 class="character-label">Status: {status}</h3>
+      <div className="character-labels">
+        <h3 className="character-label">Género: {gender}</h3>
+        <h3 className="character-label">Especie: {species}</h3>
+        <h3 className="character-label">Status: {status}</h3>
       </div>
     </CharacterDescriptionStyled>
   );
