@@ -1,6 +1,6 @@
 # Rick And Morty App
 
-Web App using the [rick and morty API](https://rickandmortyapi.com/) in React.js
+Web App using the [rick and morty API](https://rickandmortyapi.com/) in React.js\
 The project is using context Api, styled component, and more.
 
 ## Available Scripts
