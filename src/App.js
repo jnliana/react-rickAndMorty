@@ -6,6 +6,7 @@ import "./nprogress.css";
 
 import Character from "./character/pages/Character";
 import { Route } from "react-router";
+import noFound from "./character/pages/404";
 
 function App() {
   return (
@@ -13,8 +14,9 @@ function App() {
       <Globalstyle />
       <Router>
         <Switch>
-          <Route path="/:id" exact component={Character}></Route>
           <Route path="/" exact component={Character}></Route>
+          <Route path="/:id" exact component={Character}></Route>
+          <Route path="/noFound/404" exact component={noFound}></Route>
         </Switch>
       </Router>
     </React.Fragment>

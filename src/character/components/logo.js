@@ -4,7 +4,7 @@ import styled from "styled-components";
 import logo from "../../assets/images/logo@2x.png";
 
 const LogoStyled = styled.img`
-  margin: 0 auto 2em;
+  margin: 0 auto;
   display: block;
   @media screen and (max-width: 1024px) {
     max-width: 100%;

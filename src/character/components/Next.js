@@ -10,7 +10,7 @@ const NextStyled = styled.div`
   cursor: pointer;
   background-image: url(${arrow});
   background-repeat: no-repeat;
-  background-position: left bottom;
+  background-position: left top;
   min-height: 50px;
   @media screen and (max-width: 1024px) {
     user-select: none;

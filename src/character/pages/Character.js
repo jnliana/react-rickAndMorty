@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Redirect } from "react-router-dom";
 
 import CharacterDescription from "../components/Character-description";
 import CharacterImage from "../components/Character-image";
@@ -12,13 +13,22 @@ import CharacterContext from "../../character-context";
 import api from "../../api";
 
 const Character = ({ match }) => {
+  const [noFound, setNoFound] = useState();
   const [character, setCharacter] = useState({});
 
   useEffect(() => {
-    async function sendRequest() {
-      const responseData = await api.getCharacter(match.params.id || 10);
-      setCharacter(responseData);
-    }
+    const sendRequest = async () => {
+      try {
+        const responseData = await api.getCharacter(match.params.id || 10);
+        if (responseData.error) {
+          setNoFound(responseData.error);
+        } else {
+          setCharacter(responseData);
+        }
+      } catch (error) {
+        console.log("catch", error);
+      }
+    };
     sendRequest();
   }, [match.params.id]);
   return (
@@ -28,6 +38,7 @@ const Character = ({ match }) => {
         setCharacter,
       }}
     >
+      {noFound && <Redirect to="/noFound/404" />}
       <CharacterPlaceholder name={character.name} />
       {/*  Render props  name={CharacterName} */}
       <Layout
