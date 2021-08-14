@@ -2,9 +2,9 @@ import React from "react";
 import styled from "styled-components";
 
 import Social from "../components/Social";
-import Dot from "./Dot";
+import Dot from "../UIElements/Dot";
 import LearnMore from "./Learn-more";
-import Line from "./line";
+import Line from "../UIElements/Line";
 import Logo from "./logo";
 import NavigationItem from "./Navigation-item";
 

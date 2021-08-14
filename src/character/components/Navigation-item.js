@@ -8,7 +8,7 @@ const NavigationItemStyled = styled.a`
   text-transform: uppercase;
 `;
 
-const NavigationItem = ({ url, children }) => {
-  return <NavigationItemStyled href={url}>{children}</NavigationItemStyled>;
+const NavigationItem = ({ url, label }) => {
+  return <NavigationItemStyled href={url}>{label}</NavigationItemStyled>;
 };
 export default NavigationItem;

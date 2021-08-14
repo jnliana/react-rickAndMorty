@@ -2,10 +2,9 @@ import React, { useContext } from "react";
 import styled from "styled-components";
 import CharacterContext from "../../character-context";
 import NProgress from "nprogress";
+import { useHistory } from "react-router-dom";
 
 import arrow from "../../assets/images/arrow.svg";
-
-import api from "../../api";
 
 const NextStyled = styled.div`
   cursor: pointer;
@@ -22,11 +21,12 @@ const NextStyled = styled.div`
 const Next = () => {
   /*   para consumir un pedazo del contexto como es el valor */
   const context = useContext(CharacterContext);
-
+  const history = useHistory();
   async function clickHandler() {
     NProgress.start();
-    const responseData = await api.getCharacter(context.character.id + 1);
-    context.setCharacter(responseData);
+    history.push(`/${context.character.id + 1}`);
+    /* const responseData = await api.getCharacter(context.character.id + 1);
+    context.setCharacter(responseData); */
     NProgress.done();
   }
   return (

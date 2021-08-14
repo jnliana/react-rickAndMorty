@@ -1,33 +1,23 @@
-import React, { useEffect, useState } from "react";
-import api from "./api";
-import CharacterContext from "./character-context";
+import React from "react";
+import Globalstyle from "./global-styles";
+import { BrowserRouter as Router, Switch } from "react-router-dom";
 
 import "./nprogress.css";
 
-import Globalstyle from "./global-styles";
-
-import CharacterDetail from "./character/pages/character-detail";
+import Character from "./character/pages/Character";
+import { Route } from "react-router";
 
 function App() {
-  const [character, setCharacter] = useState({});
-  useEffect(() => {
-    async function sendRequest() {
-      const responseData = await api.getCharacter(1);
-      setCharacter(responseData);
-    }
-    sendRequest();
-  }, []);
-
   return (
-    <CharacterContext.Provider
-      value={{
-        character,
-        setCharacter,
-      }}
-    >
+    <React.Fragment>
       <Globalstyle />
-      <CharacterDetail character={character} />
-    </CharacterContext.Provider>
+      <Router>
+        <Switch>
+          <Route path="/:id" exact component={Character}></Route>
+          <Route path="/" exact component={Character}></Route>
+        </Switch>
+      </Router>
+    </React.Fragment>
   );
 }
 
